@@ -1,0 +1,102 @@
+/* app/question/page.module.css */
+
+.body {
+  direction: rtl;
+  height: 100vh;
+  background-color: #f0f4f7; /* اضافه کردن پس‌زمینه روشن */
+}
+
+.container {
+  max-width: 800px;
+  margin: 50px auto 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff; /* پس‌زمینه سفید برای کنتراست بیشتر */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* سایه‌دار کردن کانتینر */
+}
+
+.title {
+  font-size: 24px; /* بزرگ‌تر کردن فونت عنوان */
+  color: #0077b6; /* رنگ آبی برای عنوان */
+  border-bottom: 2px solid #0077b6; /* خط زیر عنوان با رنگ آبی */
+  padding-bottom: 10px;
+}
+
+.details {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.answerTitle {
+  font-size: 1.5rem;
+  color: #023e8a; /* رنگ تیره‌تر برای بخش پاسخ */
+  border-bottom: 2px solid #023e8a; /* خط زیر برای بخش پاسخ */
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.answer {
+  font-size: 1.2rem;
+  color: #03045e; /* رنگ آبی تیره برای متن پاسخ */
+}
+
+.box {
+  /* background: #caf0f8; پس‌زمینه آبی روشن */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box1 {
+  /* background: #e0f7fa; پس‌زمینه فیروزه‌ای روشن */
+  text-align: left;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover , .box1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.code {
+  font-family: 'Fira Code', 'Fira Mono', Consolas, 'Courier New', monospace;
+  background-color: #f5f2f0; /* رنگ پس‌زمینه خاکستری روشن */
+  color: #d62828; /* رنگ قرمز برای متن کد */
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  text-align: left !important;
+  font-size: 0.9em;
+  overflow-x: auto;
+}
+
+.imageSection {
+  text-align: center;
+}
+
+.imageSection img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #0077b6; 
+  border-radius: 8px;
+}
+
+/* Responsive layout */
+@media (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* فاصله بین آیتم‌ها */
+  }
+
+  .box, .box1, .imageSection {
+    flex: 1 1 calc(33.333% - 20px); /* عرض آیتم‌ها */
+    box-sizing: border-box;
+  }
+}

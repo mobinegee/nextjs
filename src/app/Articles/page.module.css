@@ -1,0 +1,241 @@
+/* page.module.css */
+.body {
+  font-size: 28px;
+  direction: rtl;
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f9f9; /* Soft background color */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.section {
+  width: 80%;
+  margin: auto;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: 20px;
+  background: #fff;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.section p {
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button1 {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: black;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button2 {
+  background-color: hsl(210, 77%, 46%);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.button1:hover {
+  background-color: #f0f0f0;
+}
+
+.button2:hover {
+  background-color: hsl(210, 77%, 36%);
+}
+.button1 {
+  color: black;
+  border: 1px solid black;
+  padding: 14px 20px;
+  margin: 10px;
+  width: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.button2 {
+  color: white;
+  padding: 14px 20px;
+  margin: 10px;
+  width: 120px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.section p {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 10px;
+  background: #f4f4f4;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: hsl(210, 8%, 5%);
+  position: sticky;
+  top: 0;
+}
+
+.li {
+  float: right;
+}
+
+.liLeft {
+  float: left;
+}
+
+.li a,
+.liLeft a {
+  display: block;
+  color: rgb(224, 221, 221);
+  font-size: 19px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.li a:hover,
+.liLeft a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.active {
+  background-color: #4caf50;
+}
+
+.input {
+  width: 40%;
+  padding: 10px;
+  margin-top: 7px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: hsl(210, 77%, 46%);
+  outline: none;
+}
+
+@media screen and (max-width: 576px) {
+  .input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.articleCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  width: 80%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sections > div {
+  width: 50%;
+  float: right;
+  text-align: center;
+  margin-top: 40px;
+  height: 300px;
+}
+
+.articleCard:hover,
+.qaCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.articleCard h3,
+.qaCard h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.articleCard p,
+.qaCard p {
+  font-size: 16px;
+  color: #555;
+}
+.articlesSection,
+.qasSection {
+  background-color: #f9f9f9;
+}
+.articleCard a,
+.qaCard a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.articleCard a:hover,
+.qaCard a:hover {
+  text-decoration: underline;
+}
+
+.articlesSection h2,
+.qasSection h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 0px) {
+  .sections > div {
+    width: 100%;
+    float: right;
+    text-align: center;
+    margin-top: 40px;
+    height: fit-content;
+  }
+}
+@media screen and (min-width: 576px) {
+  .articlesSection {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+  }
+  .articlesSection > div{
+    width: 50%;
+    float: right;
+  }
+
+  .articleCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto 20px auto;
+    padding: 15px;
+    max-width: 600px;
+    width: 80%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+}
