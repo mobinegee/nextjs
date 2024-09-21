@@ -1,4 +1,4 @@
-'use client'; // اضافه کردن این خط برای مشخص کردن اینکه این یک Client Component است
+'use client'; // Specify that this is a Client Component
 
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -6,41 +6,34 @@ import Header from "./components/Header/Header";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const articles = [
-  { title: "مقاله 1", description: "توضیحات مختصر درباره مقاله 1", link: "#" },
-  { title: "مقاله 2", description: "توضیحات مختصر درباره مقاله 2", link: "#" },
-  // Add more articles here
-];
-
-
-
 export default function Home() {
-  const [products, setprodcuts] = useState([])
-  const [articles, setarticles] = useState([])
+  const [products, setProducts] = useState([]);
+  const [articles, setArticles] = useState([]);
 
-  function getallproducts() {
+  function getAllProducts() {
     fetch(`https://backendnext.vercel.app/api/products/get5lastproducts`, {
       method: 'GET',
-    }).then(res => res.json()).then(result => {
-      setprodcuts(result)
-      // alert('seccessfuly')
-
     })
+      .then(res => res.json())
+      .then(result => {
+        setProducts(result);
+      });
   }
-  function getarticle() {
+
+  function getArticles() {
     fetch(`https://backendnext.vercel.app/api/products/get5lastarticle`, {
       method: 'GET',
-    }).then(res => res.json()).then(result => {
-      setarticles(result)
-      // alert('seccessfuly')
-
     })
+      .then(res => res.json())
+      .then(result => {
+        setArticles(result);
+      });
   }
-  useEffect(() => {
-    getallproducts()
-    getarticle()
 
-  }, [])
+  useEffect(() => {
+    getAllProducts();
+    getArticles();
+  }, []);
 
   return (
     <div className={styles.body}>
@@ -62,26 +55,60 @@ export default function Home() {
       <div className={styles.sections}>
         <div className={styles.articlesSection}>
           <h2>مقالات اخیر</h2>
-          {articles.map((article) => (
-            <>
-              <Link href={`/Article/${article.id}`}>
-                <div key={article.id} className={styles.articleCard}>
+          {articles.map(article => (
+            <Link key={article.id} href={`/Article/${article.id}`}>
+              <div className={styles.articleCard}>
+                {article.image_url ? (
+                  <Image
+                    src={article.image_url}
+                    alt="Question Image"
+                    layout="responsive"
+                    width={40}  // Use the original width of the image
+                    height={40} // Use the original height of the image
+                  />
+
+                ) : (
+                  <Image
+                    src="/images/1.jpeg" // Replace with your fallback image path
+                    alt="Fallback Image"
+                    width={40}
+                    height={40}
+
+                  // style={{ width: "100%", height: "auto" }}
+                  />
+                )}
                 <h5>{article.name.substring(0, 55)}</h5>
-                </div>
-              </Link>
-            </>
+              </div>
+            </Link>
           ))}
         </div>
         <div className={styles.qasSection}>
           <h2>پرسش و پاسخ</h2>
-          {products.map((product) => (
-            <>
-              <Link href={`/Product/${product.id}`}>
-                <div key={product.id} className={styles.qaCard}>
+          {products.map(product => (
+            <Link key={product.id} href={`/Product/${product.id}`}>
+              <div className={styles.qaCard}>
+                {product.image_url ? (
+                  <Image
+                    src={product.image_url}
+                    alt="Question Image"
+                    layout="responsive"
+                    width={40}
+                    height={40}
+                    style={{ objectFit: "cover", width: "100px", height: "100px" }} // اضافه کردن استایل
+                  />
+                ) : (
+                  <Image
+                    src="/images/1.jpg" // Replace with your fallback image path
+                    alt="Fallback Image"
+                    width={500}
+                    height={350}
+                    // style={{ objectFit: "cover", width: "400px", height: "250px" }} // اضافه کردن استایل
+                  />
+                )}
+
                 <h5>{product.name.substring(0, 55)}</h5>
-                </div>
-              </Link>
-            </>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

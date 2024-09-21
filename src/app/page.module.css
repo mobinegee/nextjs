@@ -2,9 +2,11 @@
 .body {
   font-size: 28px;
   direction: rtl;
-  width: 100%;
-  height: 100vh;
-  background-color: #f9f9f9; /* Soft background color */
+  min-height: 100vh; /* این خط اضافه می‌شود */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* برای قرار گرفتن فوتر در پایین صفحه */
+  background-color: #f9f9f9;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -28,6 +30,12 @@
   display: flex;
   gap: 10px;
 }
+.articleImage,
+.qaImage {
+  border-radius: 8px; /* Adjust as needed */
+  margin-bottom: 10px; /* Space between image and text */
+}
+
 
 .button1 {
   background-color: #fff;
