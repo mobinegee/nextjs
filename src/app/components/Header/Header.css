@@ -93,10 +93,11 @@
   .liLeft{
     float: left;
   }
-  .liLeft Image{
-    width: 25px;
-  }
-  
+  .liLeft img {
+    max-width: 25px; /* حداکثر عرض */
+    height: auto;    /* نسبت ابعاد را حفظ کن */
+}
+
   .li a  , .liLeft a{
     display: block;
     color: rgb(224, 221, 221);

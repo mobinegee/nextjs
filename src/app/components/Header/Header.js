@@ -33,7 +33,7 @@ export default function Header() {
                 <li className={styles.li}><Link href="/Articles">مقالات</Link></li>
                 <li className={styles.li}><Link href="/Qestions">سوالات</Link></li>
                 <li className={styles.liLeft}>
-                    <Link href="/Account"><Image  src="/images/2.png" alt="Account" width="25px" /></Link>
+                    <Link href="/Account"><Image  src="/images/2.png" alt="Account" width={25} height={25}/></Link>
                 </li>
                 <li className={styles.liLeft}><Link href="/AdminPanel">پنل ادمین</Link></li>
                 <li>
