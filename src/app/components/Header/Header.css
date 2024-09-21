@@ -93,6 +93,9 @@
   .liLeft{
     float: left;
   }
+  .liLeft Image{
+    width: 25px;
+  }
   
   .li a  , .liLeft a{
     display: block;

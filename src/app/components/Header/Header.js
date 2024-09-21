@@ -33,7 +33,7 @@ export default function Header() {
                 <li className={styles.li}><Link href="/Articles">مقالات</Link></li>
                 <li className={styles.li}><Link href="/Qestions">سوالات</Link></li>
                 <li className={styles.liLeft}>
-                    <Link href="/Account"><Image  src="/images/2.png" alt="Account" width="25px" /></Link>
+                    <Link href="/Account"><Image  src="https://nextjs-i8ta-6r2sdmpro-mobinegees-projects.vercel.app/_next/image?url=%2Fimages%2F2.png&w=3840&q=75" alt="Account" width="25px" /></Link>
                 </li>
                 <li className={styles.liLeft}><Link href="/AdminPanel">پنل ادمین</Link></li>
                 <li>
