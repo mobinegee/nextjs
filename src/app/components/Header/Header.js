@@ -3,6 +3,7 @@ import styles from "./../../page.module.css";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation'; // تغییر واردات useRouter
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function Header() {
     const [searchInput, setSearchInput] = useState(''); // مقدار اولیه برای ورودی جستجو
@@ -32,7 +33,7 @@ export default function Header() {
                 <li className={styles.li}><Link href="/Articles">مقالات</Link></li>
                 <li className={styles.li}><Link href="/Qestions">سوالات</Link></li>
                 <li className={styles.liLeft}>
-                    <Link href="/Account"><img src="/images/2.png" alt="Account" width="25px" /></Link>
+                    <Link href="/Account"><Image  src="/images/2.png" alt="Account" width="25px" /></Link>
                 </li>
                 <li className={styles.liLeft}><Link href="/AdminPanel">پنل ادمین</Link></li>
                 <li>

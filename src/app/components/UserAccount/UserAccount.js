@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './UserAccount.css';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';  // 'next/router' با 'next/navigation' جایگزین کنید.
+import Image from 'next/image';
 
 export default function Userinformation() {
     const [userinfo, setuserinfo] = useState({});
@@ -48,7 +49,7 @@ export default function Userinformation() {
     return (
         <div className="profile-container">
             <div className="profile-card">
-                <img src="images/1.png" className="avatar" alt="" />
+                <Image src="images/1.png" className="avatar" alt="" />
                 <h1 className="name">{userinfo.username}</h1>
                 <p className="email">{userinfo.email}</p>
                 <p className="bio"></p>

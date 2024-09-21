@@ -1,79 +1,56 @@
-'use client'; 
+'use client';
 
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Suspense } from 'react';
 import Header from "../components/Header/Header";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useSearchParams } from 'next/navigation';
+import styles from "./page.module.css";
 
-export default function Search() {
+function SearchResults() {
     const [resultproducts, setresultproducts] = useState([]);
     const [resultarticles, setresultarticles] = useState([]);
     const searchParams = useSearchParams();
     const query = searchParams.get('query');
 
-    function getSearch() {
+    const getSearch = useCallback(() => {
         if (query) {
-            fetch(`https://backendnext.vercel.app/api/products/search?name=${query}`, {
-                method: 'GET',
-            })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return res.json();
-            })
-            .then(result => {
-                setresultproducts(result);
-            })
-            .catch(error => {
-                console.error('Error fetching search results:', error);
-            });
+            fetch(`https://backendnext.vercel.app/api/products/search?name=${query}`)
+                .then(res => res.json())
+                .then(result => {
+                    setresultproducts(result);
+                });
         }
-    }
+    }, [query]);
 
-    function getSearcharticle() {
+    const getSearcharticle = useCallback(() => {
         if (query) {
-            fetch(`https://backendnext.vercel.app/api/products/searcharticle?name=${query}`, {
-                method: 'GET',
-            })
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return res.json();
-            })
-            .then(result => {
-                setresultarticles(result);
-            })
-            .catch(error => {
-                console.error('Error fetching article search results:', error);
-            });
+            fetch(`https://backendnext.vercel.app/api/products/searcharticle?name=${query}`)
+                .then(res => res.json())
+                .then(result => {
+                    setresultarticles(result);
+                });
         }
-    }
+    }, [query]);
 
     useEffect(() => {
         getSearch();
         getSearcharticle();
-    }, [query]); 
+    }, [getSearch, getSearcharticle]);
 
     return (
-        <div className={styles.body}>
-            <Header />
-            <h3>نتیجه جستجوی شما برای "{query}"</h3>
+        <div>
+            <h3>نتیجه جستجوی شما برای &quot;{query}&quot;</h3>
 
             {resultproducts.length > 0 ? (
                 <div className={styles.articlesSection}>
                     <h2>پرسش و پاسخ</h2>
-                    {resultproducts.map((resultproduct) => (
-                        <div key={resultproduct.id}>
-                            <Link href={`/Product/${resultproduct.id}`}>
-                                <div className={styles.articleCard}>
-                                    <h3>{resultproduct.name}</h3>
-                                </div>
-                            </Link>
-                        </div>
+                    {resultproducts.map(resultproduct => (
+                        <Link key={resultproduct.id} href={`/Product/${resultproduct.id}`}>
+                            <div className={styles.articleCard}>
+                                <h3>{resultproduct.name}</h3>
+                            </div>
+                        </Link>
                     ))}
                 </div>
             ) : (
@@ -83,24 +60,24 @@ export default function Search() {
             {resultarticles.length > 0 ? (
                 <div className={styles.articlesSection}>
                     <h2>مقالات</h2>
-                    {resultarticles.map((resultarticle) => (
-                        <div key={resultarticle.id}>
-                            <Link href={`/Article/${resultarticle.id}`}>
-                                <div className={styles.articleCard}>
-                                    <h3>{resultarticle.name}</h3>
-                                </div>
-                            </Link>
-                        </div>
+                    {resultarticles.map(resultarticle => (
+                        <Link key={resultarticle.id} href={`/Article/${resultarticle.id}`}>
+                            <div className={styles.articleCard}>
+                                <h3>{resultarticle.name}</h3>
+                            </div>
+                        </Link>
                     ))}
                 </div>
-            ) : (
-                // <p className={styles.p}>هیچ نتیجه‌ای برای مقالات یافت نشد.</p>
-                <></>
-            )}
-
-            {resultproducts.length === 0 && resultarticles.length === 0 && (
-                <h5>برای جستجوی "{query}" موردی یافت نشد.</h5>
-            )}
+            ) : null}
         </div>
+    );
+}
+
+export default function SearchPage() {
+    return (
+        <Suspense fallback={<div>در حال بارگذاری...</div>}>
+            <Header />
+            <SearchResults />
+        </Suspense>
     );
 }
