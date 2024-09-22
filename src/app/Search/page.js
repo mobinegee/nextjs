@@ -16,12 +16,23 @@ function SearchResults() {
     const getSearch = useCallback(() => {
         if (query) {
             fetch(`https://backendnext.vercel.app/api/products/search?name=${query}`)
-                .then(res => res.json())
+                .then(res => {
+                    if (res.status === 500) {
+                        // alert('500');
+                        console.log('500')
+                        throw new Error('Server error');
+                    }
+                    return res.json();
+                })
                 .then(result => {
                     setresultproducts(result);
+                })
+                .catch(error => {
+                    console.error('Error fetching search results:', error);
                 });
         }
     }, [query]);
+    
 
     const getSearcharticle = useCallback(() => {
         if (query) {
@@ -39,7 +50,7 @@ function SearchResults() {
     }, [getSearch, getSearcharticle]);
 
     return (
-        <div>
+        <div className={styles.body}>
             <h3>نتیجه جستجوی شما برای &quot;{query}&quot;</h3>
 
             {resultproducts.length > 0 ? (
@@ -54,7 +65,7 @@ function SearchResults() {
                     ))}
                 </div>
             ) : (
-                <p>هیچ نتیجه‌ای برای محصولات یافت نشد.</p>
+                <p>هیچ نتیجه‌ای برای پرسش ها یافت نشد.</p>
             )}
 
             {resultarticles.length > 0 ? (

@@ -4,6 +4,7 @@
   direction: rtl;
   height: fit-content;
   background-color: #f0f4f7; 
+  height: 100vh;
 }
 
 .container {
