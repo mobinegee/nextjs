@@ -1,7 +1,7 @@
 'use client';
 
 import './page.css';
-import Styles from './../page.module.css';
+// import Styles from './../page.module.css';
 import Header from '../components/Header/Header';
 import LoginForm from '../components/Loginform/Loginform';
 import Register from '../components/Register/Register';
@@ -32,27 +32,27 @@ export default function Products() {
 
 
   return (
-    <div className={Styles.body}>
+    <div className='body'>
       <Header />
       {isAuthenticated === null ? (
         <div>Loading...</div> 
       ) : isAuthenticated ? (
         <Userinformation />
       ) : (
-        <div>
+        <div className='forms'>
           {
             statuslogin ? (
               <>
-                <div>
+                <div className='formslogin'>
                   <LoginForm />
                   <button className='buttonchangestatus' onClick={handleClickRegister}>ثبت نام</button>
                 </div>
               </>
             ) : (
               <>
-                <div>
+                <div className='registerform'>
                   <Register />
-                  <button className='buttonchangestatuslogin' onClick={handleClickLogin}>ورود</button>
+                  <button className='buttonchangestatuslogin'  onClick={handleClickLogin}>ورود</button>
                 </div>
               </>
             )

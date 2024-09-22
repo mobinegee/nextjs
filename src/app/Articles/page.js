@@ -39,7 +39,7 @@ export default function Home() {
                     <h2>مقالات </h2>
                     {articles.map((article) => (
                         <div key={article.id}>
-                            <Link  href={`/nextjs/Article/${article.id}`}>
+                            <Link  href={`/Article/${article.id}`}>
                                 <div className={styles.articleCard}>
                                 <h3>{article.name.substring(0, 40)} ... </h3>
                                 </div>

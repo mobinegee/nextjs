@@ -4,9 +4,9 @@
   direction: rtl;
   width: 100%;
   height: 100vh;
-  background-color: #f9f9f9; /* Soft background color */
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #f9f9f9; 
 }
+
 
 .section {
   width: 80%;
@@ -40,6 +40,9 @@
   background-color: hsl(210, 77%, 46%);
   color: #fff;
   transition: background-color 0.3s ease;
+}
+.articlesSection h3{
+  color: black;
 }
 
 .button1:hover {
@@ -75,12 +78,12 @@
   font-size: 20px;
 }
 
-.header {
+/* .header {
   text-align: center;
   padding: 10px;
   background: #f4f4f4;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .ul {
   list-style-type: none;

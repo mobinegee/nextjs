@@ -2,13 +2,13 @@
 
 .body {
   direction: rtl;
-  height: 100vh;
-  background-color: #f0f4f7; /* اضافه کردن پس‌زمینه روشن */
+  height: fit-content;
+  background-color: #f0f4f7; 
 }
 
 .container {
   max-width: 800px;
-  margin: 50px auto 50px auto;
+  margin: 50px auto 0px auto;
   padding: 20px;
   font-family: Arial, sans-serif;
   background-color: #ffffff; /* پس‌زمینه سفید برای کنتراست بیشتر */

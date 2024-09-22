@@ -100,8 +100,9 @@ export default function Home() {
                   <Image
                     src="/images/1.jpg" // Replace with your fallback image path
                     alt="Fallback Image"
-                    width={500}
-                    height={350}
+                    width={350}
+                    className="image-beja"
+                    height={300}
                     // style={{ objectFit: "cover", width: "400px", height: "250px" }} // اضافه کردن استایل
                   />
                 )}

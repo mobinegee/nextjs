@@ -119,7 +119,7 @@ const Register = () => {
             required
           />
         </div>
-        {error && <p className="error-message">{error}</p>} {/* Display error message */}
+        {error && <p className="error-message">{error}</p>} 
         <button type="submit" className="signup-button">ثبت نام</button>
       </form>
     </div>
