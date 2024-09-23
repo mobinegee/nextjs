@@ -66,15 +66,12 @@ export default function Home() {
                     width={40}  // Use the original width of the image
                     height={40} // Use the original height of the image
                   />
-
                 ) : (
                   <Image
                     src="/images/1.jpeg" // Replace with your fallback image path
                     alt="Fallback Image"
                     width={350}
                     height={300}
-
-                  // style={{ width: "100%", height: "auto" }}
                   />
                 )}
                 <h5>{article.name.substring(0, 55)}</h5>
@@ -103,7 +100,6 @@ export default function Home() {
                     width={350}
                     className="image-beja"
                     height={300}
-                    // style={{ objectFit: "cover", width: "400px", height: "250px" }} // اضافه کردن استایل
                   />
                 )}
 

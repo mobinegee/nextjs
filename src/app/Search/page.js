@@ -18,8 +18,7 @@ function SearchResults() {
             fetch(`https://backendnext.vercel.app/api/products/search?name=${query}`)
                 .then(res => {
                     if (res.status === 500) {
-                        // alert('500');
-                        console.log('500')
+                        console.log('500');
                         throw new Error('Server error');
                     }
                     return res.json();
@@ -32,7 +31,6 @@ function SearchResults() {
                 });
         }
     }, [query]);
-    
 
     const getSearcharticle = useCallback(() => {
         if (query) {

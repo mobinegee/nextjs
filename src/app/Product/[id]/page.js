@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import Header from '@/app/components/Header/Header';
-import { useRouter } from 'next/navigation';
+import Loading from '@/app/components/Loading/Loading'; // اضافه کردن کامپوننت لودینگ
 import { useEffect, useState } from 'react';
 
 export default function ProductPage({ params }) {
@@ -17,7 +17,7 @@ export default function ProductPage({ params }) {
             async function getProduct() {
                 try {
                     const response = await fetch(`https://backendnext.vercel.app/api/products/products/${productID}`, {
-                        method: 'GET'
+                        method: 'GET',
                     });
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -37,7 +37,10 @@ export default function ProductPage({ params }) {
         }
     }, [productID]);
 
-    if (loading) return <p>Loading...</p>;
+    // نمایش لودینگ در حین بارگذاری داده‌ها
+    if (loading) return <Loading />;
+    
+    // نمایش پیام خطا در صورت بروز مشکل
     if (error) return <p>Error: {error}</p>;
 
     return (
@@ -53,16 +56,12 @@ export default function ProductPage({ params }) {
                     <p className={styles.answer}>{product.answer}</p>
                 </div>
                 {product.code && (
-                    <>
-                        <div className={styles.box1}>
-                            <h2 className={styles.answerTitle}>code</h2>
-                            <p className={styles.answer}>
-                                <code className={styles.code}>{product.code}</code>
-                            </p>
-                        </div>
-
-
-                    </>
+                    <div className={styles.box1}>
+                        <h2 className={styles.answerTitle}>code</h2>
+                        <p className={styles.answer}>
+                            <code className={styles.code}>{product.code}</code>
+                        </p>
+                    </div>
                 )}
 
                 {product.image_url && (

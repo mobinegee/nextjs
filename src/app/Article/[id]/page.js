@@ -1,9 +1,9 @@
-// app/Product/[id]/page.js
 'use client';
 
 import Image from 'next/image';
 import styles from './page.module.css';
 import Header from '@/app/components/Header/Header';
+import Loading from '@/app/components/Loading/Loading'; // اضافه کردن کامپوننت لودینگ
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
@@ -38,7 +38,7 @@ export default function ProductPage({ params }) {
         }
     }, [productID]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />; // نمایش کامپوننت لودینگ
     if (error) return <p>Error: {error}</p>;
 
     return (
@@ -50,23 +50,18 @@ export default function ProductPage({ params }) {
                     <p className={styles.details}>{product.description}</p>
                 </div>
                 {product.code && (
-                    <>
-                        <div className={styles.box1}>
-                            <h2 className={styles.answerTitle}>code</h2>
-                            <p className={styles.answer}>
-                                <code className={styles.code}>{product.code}</code>
-                            </p>
-                        </div>
-
-
-                    </>
+                    <div className={styles.box1}>
+                        <h2 className={styles.answerTitle}>Code</h2>
+                        <p className={styles.answer}>
+                            <code className={styles.code}>{product.code}</code>
+                        </p>
+                    </div>
                 )}
-
                 {product.image_url && (
                     <div className={styles.box}>
                         <Image
                             src={`${product.image_url}`}
-                            alt="Question Image"
+                            alt="Product Image"
                             layout="responsive"
                             width={800}
                             height={600}
