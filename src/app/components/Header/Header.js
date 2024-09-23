@@ -25,7 +25,7 @@ export default function Header() {
     return (
         <div className={styles.static}>
             <div className={styles.header}>
-                <h2>آکادمی کد</h2>
+                <Link href="/"><h1>آکادمی کد</h1></Link>
             </div>
 
             <ul className={styles.ul}>

@@ -221,6 +221,7 @@
   font-size: 24px;
   margin-bottom: 15px;
   animation: fadeIn 1s ease-in-out;
+  color: black;
 }
 
 @keyframes fadeIn {
@@ -267,7 +268,7 @@
     display: block;
     direction: rtl;
   }
-  
+
 }
 @media screen and (min-width: 600px){
   .image-beja{

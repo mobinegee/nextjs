@@ -1,10 +1,9 @@
 /* app/question/page.module.css */
 .body {
   direction: rtl;
-  height: 100vh;
-  background-color: #f0f4f7; 
+  height: fit-content;
+  background-color: #f0f4f7;
 }
-
 
 .container {
   max-width: 800px;
@@ -13,7 +12,9 @@
   font-family: Arial, sans-serif;
 }
 
-.questionSection, .answerSection, .imageSection {
+.questionSection,
+.answerSection,
+.imageSection {
   margin-bottom: 20px;
 }
 
@@ -67,7 +68,7 @@
 }
 
 .code {
-  font-family: 'Fira Code', 'Fira Mono', Consolas, 'Courier New', monospace;
+  font-family: "Fira Code", "Fira Mono", Consolas, "Courier New", monospace;
   background-color: #f5f2f0; /* Light gray background color */
   color: #333; /* Text color similar to typical code editors */
   border-radius: 4px; /* Rounded corners */
@@ -96,7 +97,9 @@
     gap: 20px; /* Space between items */
   }
 
-  .box, .box1, .imageSection {
+  .box,
+  .box1,
+  .imageSection {
     flex: 1 1 calc(33.333% - 20px); /* Adjust the width and space between items */
     box-sizing: border-box; /* Ensure padding and borders are included in the width */
   }
