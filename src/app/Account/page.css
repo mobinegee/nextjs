@@ -73,3 +73,27 @@
 .classes {
   color: red;
 }
+@media screen and (max-width : 600px) {
+  .buttonchangestatuslogin {
+    display: block;
+    margin: 20px auto; /* تغییر به 20px */
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(51, 148, 51);
+    margin-top: 50px;
+    margin-bottom: 0px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+  }
+  .buttonchangestatus{
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+  
+}
