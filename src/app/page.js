@@ -71,8 +71,8 @@ export default function Home() {
                   <Image
                     src="/images/1.jpeg" // Replace with your fallback image path
                     alt="Fallback Image"
-                    width={40}
-                    height={40}
+                    width={350}
+                    height={300}
 
                   // style={{ width: "100%", height: "auto" }}
                   />
